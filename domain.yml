@@ -8,10 +8,14 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - shop_item
 
 responses:
   utter_greet:
   - text: "Hey! How are you?"
+
+  utter_shop_item:
+  - text: "Sure, here is our catalog. Order the items and enter your address and we will deliver it to you in 30-40min"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"

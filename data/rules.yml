@@ -1,13 +1,12 @@
 version: "3.1"
 
 rules:
-
-- rule: Say goodbye anytime the user says goodbye
+- rule: Utterance for the intent greet
   steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - intent: greet
+  - action: utter_did_that_help
 
-- rule: Say 'I am a bot' anytime the user challenges
+- rule: Utterance for user intent buy
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - intent: shop_item
+  - action: utter_shop_item

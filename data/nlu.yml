@@ -17,6 +17,17 @@ nlu:
     - goodevening
     - good afternoon
 
+- intent: buy_item
+  examples: |
+    - I want to shop for items
+    - I want to buy something
+    - what can i order?
+    - what items are available?
+    - show me your catalog
+    - order
+    - take my order please
+    - open shopping list
+
 - intent: goodbye
   examples: |
     - cu
