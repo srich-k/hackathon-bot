@@ -6,6 +6,7 @@ intents:
   - affirm
   - deny
   - shop_item
+  - select_category
 
 responses:
   utter_greet:
@@ -13,6 +14,9 @@ responses:
 
   utter_shop_item:
   - text: "Sure, here is our catalog. Order the items and enter your address and we will deliver it to you in 30-40min"
+
+  utter_parent_category:
+  - text: "You have selected a parent category, proceed forward"
 
 actions:
   - action_show_items
@@ -29,6 +33,9 @@ slots:
       - beverages
       - stationery
       - others
+    mappings:
+      - type: from_entity
+        entity: parent_category
 
 session_config:
   session_expiration_time: 60

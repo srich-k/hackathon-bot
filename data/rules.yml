@@ -10,3 +10,8 @@ rules:
   steps:
   - intent: shop_item
   - action: action_show_items
+
+- rule: Selecting user's parent category of item
+  steps:
+  - intent: select_category
+  - action: utter_parent_category
