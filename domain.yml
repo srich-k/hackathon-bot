@@ -5,9 +5,6 @@ intents:
   - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
   - shop_item
 
 responses:
@@ -17,21 +14,21 @@ responses:
   utter_shop_item:
   - text: "Sure, here is our catalog. Order the items and enter your address and we will deliver it to you in 30-40min"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+actions:
+  - action_show_items
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+entities:
+  - parent_category
 
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+slots:
+  parent_category:
+    type: categorical
+    values: 
+      - Fruits & Vegetables
+      - Snacks
+      - Beverages
+      - Stationery
+      - Others
 
 session_config:
   session_expiration_time: 60

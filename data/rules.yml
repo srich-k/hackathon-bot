@@ -4,9 +4,9 @@ rules:
 - rule: Utterance for the intent greet
   steps:
   - intent: greet
-  - action: utter_did_that_help
+  - action: utter_greet
 
 - rule: Utterance for user intent buy
   steps:
   - intent: shop_item
-  - action: utter_shop_item
+  - action: action_show_items
