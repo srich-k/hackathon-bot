@@ -14,4 +14,4 @@ rules:
 - rule: Selecting user's parent category of item
   steps:
   - intent: select_category
-  - action: utter_parent_category
+  - action: action_select_category

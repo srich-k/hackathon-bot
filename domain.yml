@@ -20,9 +20,11 @@ responses:
 
 actions:
   - action_show_items
+  - action_select_category
 
 entities:
   - parent_category
+  - quantifier
 
 slots:
   parent_category:
@@ -36,6 +38,15 @@ slots:
     mappings:
       - type: from_entity
         entity: parent_category
+  quantifier:
+    type: categorical
+    values:
+      - weight
+      - packets
+      - litres
+    mappings:
+      - type: from_entity
+        entity: quantifier
 
 session_config:
   session_expiration_time: 60

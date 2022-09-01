@@ -2,3 +2,4 @@ bot-env/*
 .rasa/
 models/*
 .vscode/
+credentials.yml
