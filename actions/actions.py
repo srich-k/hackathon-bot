@@ -18,6 +18,7 @@ def formulate_message(*msg_parts):
     for msg_part in msg_parts:
         message += msg_part + "\n"
     return message
+    
 
 class ActionShowItems(Action):
 
@@ -27,8 +28,12 @@ class ActionShowItems(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         message = formulate_message("In your area we have the following available on instamart", "Your order will be delivered in 30-40min, rest assured - order away!")
         buttons = []
-        buttons.append({"title": "vegetables", "payload": "/buy_vegetables"})
-        buttons.append({"title": "fruits", "payload": "/buy_fruits"})
-        buttons.append({"title": "milk & bread", "payload": "/buy_milk"})
+        
+        buttons.append({"title": "Fruits and Vegetables", "payload": '/select_category{"parent_category": "f-and-v"}'})
+        buttons.append({"title": "Snacks", "payload": '/select_category{"parent_category": "snacks"}'})
+        buttons.append({"title": "Beverages", "payload": '/select_category{"parent_category": "beverages"}'})
+        buttons.append({"title": "Stationery", "payload": '/select_category{"parent_category": "stationery"}'})
+        buttons.append({"title": "Others", "payload": '/select_category{"parent_category": "others"}'})
+
         dispatcher.utter_message(text=message, buttons=buttons)
         return [FollowupAction("action_listen")]

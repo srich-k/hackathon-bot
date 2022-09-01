@@ -24,11 +24,11 @@ slots:
   parent_category:
     type: categorical
     values: 
-      - Fruits & Vegetables
-      - Snacks
-      - Beverages
-      - Stationery
-      - Others
+      - f-and-v
+      - snacks
+      - beverages
+      - stationery
+      - others
 
 session_config:
   session_expiration_time: 60

@@ -59,3 +59,30 @@ nlu:
     - don't like that
     - no way
     - not really
+
+- intent: select_category
+  examples: |
+    - I want to buy [fruits]{"entity": "parent_category"}
+    - Do you have [fruits]{"entity": "parent_category"} available
+    - I am looking for [vegetables]{"entity": "parent_category"}
+    - Hey, I want to shop for some [raw ingredients]{"entity": "parent_category"}
+    - I wanna take some [veggies]{"entity": "parent_category"}
+    - Show me some fresh [fruits and vegetables]{"entity": "parent_category"}
+    - [Vegetable]{"entity": "parent_category"} please
+    - Some [fruit]{"entity": "parent_category"} to eat please
+    - Do you have [vegetables and fruits]{"entity": "parent_category"}?
+
+- synonym: f-and-v
+  examples: |
+    - fruits
+    - Fruits
+    - FRUITS
+    - veggies
+    - VEGGIES
+    - vegatables
+    - Vegetable
+    - Vegetables
+    - Fruits or Vegetables
+    - Fruit and Veggie
+    - fruits and vegetables
+    - vegetables and fruits
