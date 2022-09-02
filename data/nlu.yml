@@ -95,6 +95,8 @@ nlu:
     - Fruit and Veggie
     - fruits and vegetables
     - vegetables and fruits
+    - healthy fruits
+    - healthy vegetables
 
 - regex: mobile_no
   examples: |

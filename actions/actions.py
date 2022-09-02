@@ -44,6 +44,24 @@ beverage_buttons = [
     {"title": "sprite", "payload": '/purchase_item{"item": "popcorn", "quantifier": "weight"}'},
 ]
 
+health_nutrition_supplements_buttons = [
+    {"title": "mountain dew", "payload": '/purchase_item{"item": "lays", "quantifier": "number"}'},
+    {"title": "pepsi", "payload": '/purchase_item{"item": "nachos", "quantifier": "number"}'},
+    {"title": "sprite", "payload": '/purchase_item{"item": "popcorn", "quantifier": "weight"}'},
+]
+
+bakery_egg_dairy_buttons = [
+    {"title": "mountain dew", "payload": '/purchase_item{"item": "lays", "quantifier": "number"}'},
+    {"title": "pepsi", "payload": '/purchase_item{"item": "nachos", "quantifier": "number"}'},
+    {"title": "sprite", "payload": '/purchase_item{"item": "popcorn", "quantifier": "weight"}'},
+]
+
+packaged_food_buttons = [
+    {"title": "mountain dew", "payload": '/purchase_item{"item": "lays", "quantifier": "number"}'},
+    {"title": "pepsi", "payload": '/purchase_item{"item": "nachos", "quantifier": "number"}'},
+    {"title": "sprite", "payload": '/purchase_item{"item": "popcorn", "quantifier": "weight"}'},
+]
+
 welcome_buttons = [
     {"title": "Enter details", "payload": '/user_details'},
     {"title": "Explore our catalog", "payload": '/shop_item'}
