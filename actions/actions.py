@@ -33,8 +33,8 @@ f_and_v_buttons = [
 ]
 
 snack_buttons = [
-    {"title": "Lay's Hot N Sweet Chilli Potato Chips", "payload": '/purchase_item{"item": "lays", "price": 30,  "quantifier": "number"}'},
-    {"title": "Britannia Classic Little Hearts", "payload": '/purchase_item{"item": "britannia", "price": 20, "quantifier": "number"}'},
+    {"title": "Lay's Hot N Sweet Chilli Potato 🥔 Chips", "payload": '/purchase_item{"item": "lays", "price": 30,  "quantifier": "number"}'},
+    {"title": "Britannia Classic Little Hearts 💕 ", "payload": '/purchase_item{"item": "britannia", "price": 20, "quantifier": "number"}'},
     {"title": "Kurkure Masala Munch Crisps", "payload": '/purchase_item{"item": "kurkure", "price": 20, "quantifier": "weight"}'}
 ]
 
