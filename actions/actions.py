@@ -26,16 +26,16 @@ parent_category_buttons = [
 ]
 
 f_and_v_buttons = [
-    {"title": "🍎 Apple", "payload": '/purchase_item{"item": "apple", "quantifier": "weight"}'},
-    {"title": "🍌 Banana", "payload": '/purchase_item{"item": "banana", "quantifier": "weight"}'},
-    {"title": "🍅 Tomatoes", "payload": '/purchase_item{"item": "tomato", "quantifier": "weight"}'},
-    {"title": "🧅 Onion", "payload": '/purchase_item{"item": "onion", "quantifier": "weight"}'},
+    {"title": "🍎 Apple", "payload": '/purchase_item{"item": "apple", "price": 120, "quantifier": "weight"}'},
+    {"title": "🍌 Banana", "payload": '/purchase_item{"item": "banana", "price": 60, "quantifier": "weight"}'},
+    {"title": "🍅 Tomatoes", "payload": '/purchase_item{"item": "tomato", "price": 75, "quantifier": "weight"}'},
+    {"title": "🧅 Onion", "payload": '/purchase_item{"item": "onion", "price": 30, "quantifier": "weight"}'},
 ]
 
 snack_buttons = [
     {"title": "Lay's Hot N Sweet Chilli Potato Chips", "payload": '/purchase_item{"item": "lays", "price": 30,  "quantifier": "number"}'},
-    {"title": "Britannia Classic Little Hearts", "payload": '/purchase_item{"item": "britannia", "quantifier": "number"}'},
-    {"title": "Kurkure Masala Munch Crisps", "payload": '/purchase_item{"item": "kurkure", "quantifier": "weight"}'}
+    {"title": "Britannia Classic Little Hearts", "payload": '/purchase_item{"item": "britannia", "price": 20, "quantifier": "number"}'},
+    {"title": "Kurkure Masala Munch Crisps", "payload": '/purchase_item{"item": "kurkure", "price": 20, "quantifier": "weight"}'}
 ]
 
 beverage_buttons = [
