@@ -47,6 +47,24 @@ beverage_buttons = [
     {"title": "sprite", "payload": '/purchase_item{"item": "popcorn", "quantifier": "weight"}'},
 ]
 
+health_nutrition_supplements_buttons = [
+    {"title": "mountain dew", "payload": '/purchase_item{"item": "lays", "quantifier": "number"}'},
+    {"title": "pepsi", "payload": '/purchase_item{"item": "nachos", "quantifier": "number"}'},
+    {"title": "sprite", "payload": '/purchase_item{"item": "popcorn", "quantifier": "weight"}'},
+]
+
+bakery_egg_dairy_buttons = [
+    {"title": "mountain dew", "payload": '/purchase_item{"item": "lays", "quantifier": "number"}'},
+    {"title": "pepsi", "payload": '/purchase_item{"item": "nachos", "quantifier": "number"}'},
+    {"title": "sprite", "payload": '/purchase_item{"item": "popcorn", "quantifier": "weight"}'},
+]
+
+packaged_food_buttons = [
+    {"title": "mountain dew", "payload": '/purchase_item{"item": "lays", "quantifier": "number"}'},
+    {"title": "pepsi", "payload": '/purchase_item{"item": "nachos", "quantifier": "number"}'},
+    {"title": "sprite", "payload": '/purchase_item{"item": "popcorn", "quantifier": "weight"}'},
+]
+
 welcome_buttons = [
     {"title": "Enter details", "payload": '/user_details'},
     {"title": "Explore our catalog", "payload": '/shop_item'}
@@ -120,7 +138,7 @@ class ActionSubmitUserDetails(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]):
         mobile_no = tracker.get_slot("mobile_no")
         if mobile_no is not None:
-            name = static_data.get(mobile_no).get("name")
+            name = static_data.get(mobile_no, {}).get("name")
             if name:
                 message = formulate_message(f"Hey {name}! Welcome back to Swiggy", "It is wonderful to see you again, choose from the following")
             else:
