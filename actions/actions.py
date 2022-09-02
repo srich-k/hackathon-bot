@@ -23,8 +23,8 @@ parent_category_buttons = [
     {"title": "Beverages", "payload": '/select_category{"parent_category": "beverages"}'},
     {"title": "health_nutrition_supplements_buttons", "payload": '/select_category{"parent_category": "health-nutrition-supplements"}'},
     {"title": "bakery_egg_dairy_buttons", "payload": '/select_category{"parent_category": "bakery-egg-dairy"}'},
-    {"title": "packaged_food_buttons", "payload": '/select_category{"parent_category": "packaged-food"}'},
-    {"title": "Others", "payload": '/select_category{"parent_category": "others"}'}
+    # {"title": "packaged_food_buttons", "payload": '/select_category{"parent_category": "packaged-food"}'},
+    # {"title": "Others", "payload": '/select_category{"parent_category": "others"}'}
 ]
 
 f_and_v_buttons = [
@@ -58,10 +58,10 @@ health_nutrition_supplements_buttons = [
 
 bakery_egg_dairy_buttons = [
     {"title": "Amul Taaza Milky Milk", "payload": '/purchase_item{"item": "AmulTaaza", "price": 50, "quantifier": "number"}'},
-    {"title": "Amul Gold Pasteurised Full Cream Milk", "payload": '/purchase_item{"item": "AmulGold", "price": 50, "quantifier": "number"}'},
+    {"title": "Britania Brown Bread", "payload": '/purchase_item{"item": "brownbread", "price": 50, "quantifier": "number"}'},
     {"title": "Amul Masti Dahi", "payload": '/purchase_item{"item": "AmulMasti", "price": 50, "quantifier": "weight"}'},
     {"title": "Mother Dairy Toned Milk", "payload": '/purchase_item{"item": "MotherDairy", "price": 50, "quantifier": "weight"}'},
-    {"title": "Heritage Daily Health Toned Milk", "payload": '/purchase_item{"item": "HeritageDaily", "price": 50, "quantifier": "weight"}'},
+    {"title": "Eggs (pack of 6)", "payload": '/purchase_item{"item": "egg", "price": 80, "quantifier": "weight"}'},
 ]
 
 packaged_food_buttons = [
