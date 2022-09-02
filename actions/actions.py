@@ -1,11 +1,13 @@
 from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
-from rasa_sdk.events import FollowupAction
+from rasa_sdk.events import FollowupAction, AllSlotsReset
 from rasa.core.actions.forms import FormAction
 from rasa_sdk.executor import CollectingDispatcher
 
-static_data = {"8008035999": "Charan"}
+static_data = {"8008035999": "Charan", "9545945338": "Piyush", "7073580630": "Tanya", "7259318319": "Ashay",
+               "9886047004": "Goda", "9637885668": "Sanskriti", "9886747160": "Jose", "8296867159": "Jairaj", 
+               "7760255118": "Hemant"}
 
 parent_category_buttons = [
     {"title": "Fruits and Vegetables", "payload": '/select_category{"parent_category": "f-and-v"}'},
@@ -100,7 +102,7 @@ class ActionGreetUser(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         message = formulate_message("Hey there 👋, welcome to swiggy", "I am SWIGG-AI your owm personal assistant, I am here to make your ordering journey a breaze. Please choose from the following, you are just a few taps away from having convenience delivered at your doorstep 🚪")
         dispatcher.utter_message(text=message, buttons=welcome_buttons)
-        return [FollowupAction("action_listen")]
+        return [FollowupAction("action_listen"), AllSlotsReset()]
 
 
 class ActionSubmitUserDetails(Action):
