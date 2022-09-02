@@ -60,6 +60,15 @@ nlu:
     - no way
     - not really
 
+- intent: user_details
+  examples: |
+    - Here is my mobile number [9087678876]{"entity": "mobile_no"}
+    - My number is [7654323478]{"entity": "mobile_no"}
+    - [9876543122]{"entity": "mobile_no"}
+    - you can reach me at [6787543218]{"entity": "mobile_no"}
+    - I am available at [8765432123]{"entity": "mobile_no"}
+    - my personal mobile is [7654567890]{"entity": "mobile_no"}
+
 - intent: select_category
   examples: |
     - I want to buy [fruits]{"entity": "parent_category"}
@@ -87,7 +96,7 @@ nlu:
     - fruits and vegetables
     - vegetables and fruits
 
-
 - regex: mobile_no
   examples: |
     - \b\d{10}\b
+    - \d{10}
