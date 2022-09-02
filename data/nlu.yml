@@ -28,6 +28,55 @@ nlu:
     - take my order please
     - open shopping list
 
+- intent: shop_item_by_name
+  examples: |
+    - Baby Cream
+    - Diapers
+    - Breads
+    - Brown bread
+    - Buns
+    - Milk white bread
+    - Other Bakery Items
+    - Butter
+    - Butter Milk & Lassi
+    - Cheese
+    - Curd
+    - Milk shakes
+    - Probiotics
+    - Milk
+    - Paneer
+    - Milk shakes
+    - Paneer
+    - Coffee
+    - Energy Drinks
+    - Health Drink Mix
+    - Energy Drinks
+    - Juice
+    - Soda
+    - Soft Drinks
+    - Squash & Syrups
+    - Adult Dry Food - Cat
+    - Adult Dry Food - Dog
+    - Treats
+    - combos
+    - Gift hampers
+    - Treats
+    - Eggs
+    - Sanitary Napkins & Tampons
+    - Almond
+    - Apple
+    - Apricot
+    - Avocado
+    - Banana
+    - Black Grapes
+    - Blueberry
+    - Cherry
+    - Custard Apple
+    - Dates
+    - Dragon fruit
+    - Fig
+    - Fruits Combo
+
 - intent: goodbye
   examples: |
     - cu
