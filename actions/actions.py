@@ -21,7 +21,9 @@ parent_category_buttons = [
     {"title": "Fruits and Vegetables", "payload": '/select_category{"parent_category": "f-and-v"}'},
     {"title": "Snacks", "payload": '/select_category{"parent_category": "snacks"}'},
     {"title": "Beverages", "payload": '/select_category{"parent_category": "beverages"}'},
-    {"title": "Stationery", "payload": '/select_category{"parent_category": "stationery"}'},
+    {"title": "health_nutrition_supplements_buttons", "payload": '/select_category{"parent_category": "health-nutrition-supplements"}'},
+    {"title": "bakery_egg_dairy_buttons", "payload": '/select_category{"parent_category": "bakery-egg-dairy"}'},
+    {"title": "packaged_food_buttons", "payload": '/select_category{"parent_category": "packaged-food"}'},
     {"title": "Others", "payload": '/select_category{"parent_category": "others"}'}
 ]
 
@@ -75,6 +77,14 @@ welcome_buttons = [
     {"title": "Explore our catalog", "payload": '/shop_item'}
 ]
 
+parent_category_buttons = {
+    "f-and-v": f_and_v_buttons, 
+    "snacks": snack_buttons, 
+    "beverages": beverage_buttons, 
+    "health-nutrition-supplements": health_nutrition_supplements_buttons, 
+    "bakery-egg-dairy": bakery_egg_dairy_buttons, 
+    "packaged-food": packaged_food_buttons}
+
 def formulate_message(*msg_parts):
     message = ""
     for msg_part in msg_parts:
@@ -107,8 +117,8 @@ class ActionSelectCategory(Action):
             return [FollowupAction("action_listen")]
         parent_categ_str = "Fruits and Vegetables" if parent_category == "f-and-v" else parent_category.capitalize()
         message = formulate_message(f"In {parent_categ_str}", "We have the following available")
-
-        dispatcher.utter_message(text=message, buttons=f_and_v_buttons)
+        display_buttons = parent_category_buttons.get(parent_category)
+        dispatcher.utter_message(text=message, buttons=display_buttons)
         return [FollowupAction("action_listen")]
 
 
