@@ -2,6 +2,7 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.events import FollowupAction
+from rasa.core.actions.forms import FormAction
 from rasa_sdk.executor import CollectingDispatcher
 
 parent_category_buttons = [
@@ -32,6 +33,11 @@ beverage_buttons = [
     {"title": "mountain dew", "payload": '/purchase_item{"item": "lays", "quantifier": "number"}'},
     {"title": "pepsi", "payload": '/purchase_item{"item": "nachos", "quantifier": "number"}'},
     {"title": "sprite", "payload": '/purchase_item{"item": "popcorn", "quantifier": "weight"}'},
+]
+
+welcome_buttons = [
+    {"title": "Enter details", "payload": '/user_details'},
+    {"title": "Explore our catalog", "payload": '/shop_item'}
 ]
 
 def formulate_message(*msg_parts):
@@ -83,4 +89,14 @@ class ActionPurchaseItem(Action):
         dispatcher.utter_message(text=message, buttons=f_and_v_buttons)
         
         return [FollowupAction("action_listen")]
+
+
+class ActionGreetUser(Action):
+    def name(self):
+        return "action_greet_user"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        message = formulate_message("Hey there 👋, welcome to swiggy", "I am SWIGG-AI your owm personal assistant, I am here to make your ordering journey a breaze. Please choose from the following, you are just a few taps away from having convenience delivered at your doorstep 🚪")
+        dispatcher.utter_message(text=message, buttons=welcome_buttons)
+        return [FollowupAction("action_listem")]
         

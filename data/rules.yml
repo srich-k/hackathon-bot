@@ -4,7 +4,7 @@ rules:
 - rule: Utterance for the intent greet
   steps:
   - intent: greet
-  - action: utter_greet
+  - action: action_greet_user
 
 - rule: Utterance for user intent buy
   steps:
@@ -15,3 +15,8 @@ rules:
   steps:
   - intent: select_category
   - action: action_select_category
+
+- rule: Fetch user details
+  steps:
+  - intent: user_details
+  - action: user_details_form

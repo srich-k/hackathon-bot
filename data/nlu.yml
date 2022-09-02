@@ -86,3 +86,8 @@ nlu:
     - Fruit and Veggie
     - fruits and vegetables
     - vegetables and fruits
+
+
+- regex: mobile_no
+  examples: |
+    - \b\d{10}\b
