@@ -29,37 +29,45 @@ f_and_v_buttons = [
     {"title": "🍎 Apple", "payload": '/purchase_item{"item": "apple", "quantifier": "weight"}'},
     {"title": "🍌 Banana", "payload": '/purchase_item{"item": "banana", "quantifier": "weight"}'},
     {"title": "🍅 Tomatoes", "payload": '/purchase_item{"item": "tomato", "quantifier": "weight"}'},
-    {"title": "🧅 Onion", "payload": '/purchase_item{"item": "onion", "quantifier": "weight"}'}
+    {"title": "🧅 Onion", "payload": '/purchase_item{"item": "onion", "quantifier": "weight"}'},
 ]
 
 snack_buttons = [
-    {"title": "Lays", "payload": '/purchase_item{"item": "lays", "quantifier": "number"}'},
-    {"title": "Nachos", "payload": '/purchase_item{"item": "nachos", "quantifier": "number"}'},
-    {"title": "Popcorn", "payload": '/purchase_item{"item": "popcorn", "quantifier": "weight"}'}
+    {"title": "Lay's Hot N Sweet Chilli Potato Chips", "payload": '/purchase_item{"item": "lays", "price": 30,  "quantifier": "number"}'},
+    {"title": "Britannia Classic Little Hearts", "payload": '/purchase_item{"item": "britannia", "quantifier": "number"}'},
+    {"title": "Kurkure Masala Munch Crisps", "payload": '/purchase_item{"item": "kurkure", "quantifier": "weight"}'}
 ]
 
 beverage_buttons = [
-    {"title": "mountain dew", "payload": '/purchase_item{"item": "lays", "quantifier": "number"}'},
-    {"title": "pepsi", "payload": '/purchase_item{"item": "nachos", "quantifier": "number"}'},
-    {"title": "sprite", "payload": '/purchase_item{"item": "popcorn", "quantifier": "weight"}'},
+    {"title": "Thums Up (Bottle)", "payload": '/purchase_item{"item": "thumsup", "price": 40, "quantifier": "number"}'},
+    {"title": "Coca Cola (Bottle)", "payload": '/purchase_item{"item": "cocacola", "price": 40, "quantifier": "number"}'},
+    {"title": "Kinley Extra Punch Soda (Bottle)", "payload": '/purchase_item{"item": "kinleySoda","price": 40, "quantifier": "weight"}'},
+    {"title": "Sprite", "payload": '/purchase_item{"item": "sprite","price": 40, "quantifier": "weight"}'},
+    {"title": "Coca-Cola Diet Coke (Can)", "payload": '/purchase_item{"item": "cocacoladiet", "price": 50, "quantifier": "weight"}'},
 ]
 
 health_nutrition_supplements_buttons = [
-    {"title": "mountain dew", "payload": '/purchase_item{"item": "lays", "quantifier": "number"}'},
-    {"title": "pepsi", "payload": '/purchase_item{"item": "nachos", "quantifier": "number"}'},
-    {"title": "sprite", "payload": '/purchase_item{"item": "popcorn", "quantifier": "weight"}'},
+    {"title": "Cipla Prolyte ORS Apple Tetra", "payload": '/purchase_item{"item": "cipla", "price": 100, "quantifier": "number"}'},
+    {"title": "ORSL Plus Orange Drink", "payload": '/purchase_item{"item": "orslorange", "price": 100, "quantifier": "number"}'},
+    {"title": "Yakult Light Probiotic Drink", "payload": '/purchase_item{"item": "yakultdrink","price": 100, "quantifier": "weight"}'},
+    {"title": "ORSL Apple Drink", "payload": '/purchase_item{"item": "orslapple","price": 100, "quantifier": "weight"}'},
+    {"title": "Vicks Cough Drops Menthol", "payload": '/purchase_item{"item": "vicks", "price": 100, "quantifier": "weight"}'},
 ]
 
 bakery_egg_dairy_buttons = [
-    {"title": "mountain dew", "payload": '/purchase_item{"item": "lays", "quantifier": "number"}'},
-    {"title": "pepsi", "payload": '/purchase_item{"item": "nachos", "quantifier": "number"}'},
-    {"title": "sprite", "payload": '/purchase_item{"item": "popcorn", "quantifier": "weight"}'},
+    {"title": "Amul Taaza Milky Milk", "payload": '/purchase_item{"item": "AmulTaaza", "price": 50, "quantifier": "number"}'},
+    {"title": "Amul Gold Pasteurised Full Cream Milk", "payload": '/purchase_item{"item": "AmulGold", "price": 50, "quantifier": "number"}'},
+    {"title": "Amul Masti Dahi", "payload": '/purchase_item{"item": "AmulMasti", "price": 50, "quantifier": "weight"}'},
+    {"title": "Mother Dairy Toned Milk", "payload": '/purchase_item{"item": "MotherDairy", "price": 50, "quantifier": "weight"}'},
+    {"title": "Heritage Daily Health Toned Milk", "payload": '/purchase_item{"item": "HeritageDaily", "price": 50, "quantifier": "weight"}'},
 ]
 
 packaged_food_buttons = [
-    {"title": "mountain dew", "payload": '/purchase_item{"item": "lays", "quantifier": "number"}'},
-    {"title": "pepsi", "payload": '/purchase_item{"item": "nachos", "quantifier": "number"}'},
-    {"title": "sprite", "payload": '/purchase_item{"item": "popcorn", "quantifier": "weight"}'},
+    {"title": "ACT II Instant Popcorn Classic Salted", "payload": '/purchase_item{"item": "InstantPopcorn","price": 50, "quantifier": "number"}'},
+    {"title": "Yummiez Green Peas", "payload": '/purchase_item{"item": "YummiezGreenPeas","price": 50, "quantifier": "number"}'},
+    {"title": "Knorr Tomato Chatpata Cup-a-Soup", "payload": '/purchase_item{"item": "KnorrTomatoSoup","price": 50, "quantifier": "weight"}'},
+    {"title": "Safal Frozen Green Peas (Matar)", "payload": '/purchase_item{"item": "SafalFrozenGreen","price": 50,"quantifier": "weight"}'},
+    {"title": "iD Malabar Parota", "payload": '/purchase_item{"item": "iDMalabar","price": 50,"quantifier": "weight"}'}
 ]
 
 welcome_buttons = [
