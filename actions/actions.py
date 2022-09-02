@@ -26,13 +26,10 @@ parent_category_buttons = [
 ]
 
 f_and_v_buttons = [
-    {"title": "Apple", "payload": '/purchase_item{"item": "apple", "quantifier": "weight"}'},
-    {"title": "Banana", "payload": '/purchase_item{"item": "banana", "quantifier": "weight"}'},
-    {"title": "Pineapple", "payload": '/purchase_item{"item": "pineapple", "quantifier": "weight"}'},
-    {"title": "Watermelon", "payload": '/purchase_item{"item": "watermelon", "quantifier": "weight"}'},
-    {"title": "Potatoes", "payload": '/purchase_item{"item": "potato", "quantifier": "weight"}'},
-    {"title": "Tomatoes", "payload": '/purchase_item{"item": "tomato", "quantifier": "weight"}'},
-    {"title": "Onion", "payload": '/purchase_item{"item": "onion", "quantifier": "weight"}'},
+    {"title": "🍎 Apple", "payload": '/purchase_item{"item": "apple", "quantifier": "weight"}'},
+    {"title": "🍌 Banana", "payload": '/purchase_item{"item": "banana", "quantifier": "weight"}'},
+    {"title": "🍅 Tomatoes", "payload": '/purchase_item{"item": "tomato", "quantifier": "weight"}'},
+    {"title": "🧅 Onion", "payload": '/purchase_item{"item": "onion", "quantifier": "weight"}'}
 ]
 
 snack_buttons = [
@@ -77,11 +74,14 @@ class ActionSelectCategory(Action):
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         parent_category = tracker.get_slot("parent_category")
+        print(f"IN ACTION: {self.name()}")
+        print(f"Parent category is: {parent_category}")
         if parent_category is None:
             dispatcher.utter_message(text="Could you please choose from the following?", buttons=parent_category_buttons)
             return [FollowupAction("action_listen")]
         parent_categ_str = "Fruits and Vegetables" if parent_category == "f-and-v" else parent_category.capitalize()
         message = formulate_message(f"In {parent_categ_str}", "We have the following available")
+
         dispatcher.utter_message(text=message, buttons=f_and_v_buttons)
         return [FollowupAction("action_listen")]
 
@@ -120,7 +120,7 @@ class ActionSubmitUserDetails(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]):
         mobile_no = tracker.get_slot("mobile_no")
         if mobile_no is not None:
-            name = static_data.get(mobile_no).get("name")
+            name = static_data.get(mobile_no, {}).get("name")
             if name:
                 message = formulate_message(f"Hey {name}! Welcome back to Swiggy", "It is wonderful to see you again, choose from the following")
             else:
