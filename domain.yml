@@ -23,6 +23,7 @@ actions:
   - action_show_items
   - action_select_category
   - action_greet_user
+  - action_submit_user_details
 
 entities:
   - parent_category

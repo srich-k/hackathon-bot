@@ -20,3 +20,14 @@ rules:
   steps:
   - intent: user_details
   - action: user_details_form
+  - active_loop: user_details_form
+
+- rule: Submit user details form
+  condition:
+  - active_loop: user_details_form
+  steps:
+  - action: user_details_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_submit_user_details

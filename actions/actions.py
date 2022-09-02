@@ -5,6 +5,8 @@ from rasa_sdk.events import FollowupAction
 from rasa.core.actions.forms import FormAction
 from rasa_sdk.executor import CollectingDispatcher
 
+static_data = {"8008035999": "Charan"}
+
 parent_category_buttons = [
     {"title": "Fruits and Vegetables", "payload": '/select_category{"parent_category": "f-and-v"}'},
     {"title": "Snacks", "payload": '/select_category{"parent_category": "snacks"}'},
@@ -98,5 +100,22 @@ class ActionGreetUser(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         message = formulate_message("Hey there 👋, welcome to swiggy", "I am SWIGG-AI your owm personal assistant, I am here to make your ordering journey a breaze. Please choose from the following, you are just a few taps away from having convenience delivered at your doorstep 🚪")
         dispatcher.utter_message(text=message, buttons=welcome_buttons)
-        return [FollowupAction("action_listem")]
-        
+        return [FollowupAction("action_listen")]
+
+
+class ActionSubmitUserDetails(Action):
+    def name(self):
+        return "action_submit_user_details"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]):
+        mobile_no = tracker.get_slot("mobile_no")
+        if mobile_no is not None:
+            name = static_data.get(mobile_no)
+            if name:
+                message = formulate_message(f"Hey {name}! Welcome back to Swiggy", "It is wonderful to see you again, choose from the following")
+            else:
+                message = formulate_message(f"Wonderful, you are all set to start your order journey, choose from the following")
+            dispatcher.utter_message(message)
+            return [FollowupAction("action_show_items")]
+            
+
