@@ -13,10 +13,12 @@ intents:
   - swiggy_category_food
   - swiggy_category_im
   - select_fav_food
-  - select_explore_cuisine
+  - select_critically_acclaimed
   - select_suggest_me
   - select_time
   - select_mood_category
+  - select_crave_category
+  - select_budget
 
 responses:
   utter_shop_item:
@@ -37,9 +39,13 @@ actions:
   - action_show_swiggy_category
   - action_show_food_option
   - action_show_fav_food_option
+  - action_show_critically_acclaimed_food_option
   - action_show_food_suggest_meL1
   - action_show_food_suggest_meL2
   - action_show_cart
+  - action_show_food_suggest_meL3
+  - action_show_food_suggest_meL4
+  - action_show_food_suggest_meL5
 
 entities:
   - parent_category
@@ -49,6 +55,9 @@ entities:
   - food_category
   - im_category
   - mood_category
+  - crave_category
+  - budget_category
+  - time_category
 
 slots:
   mobile_no:

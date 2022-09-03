@@ -213,7 +213,7 @@ class ActionShowSwiggyCategory(Action):
 
 food_buttons = [
      {"title": "Show my favorites", "payload": '/select_fav_food'},
-    {"title": "Explore Cuisines", "payload": '/select_explore_cuisine'},
+    {"title": "Critically Acclaimed Dishes", "payload": '/select_critically_acclaimed'},
     {"title": "Suggest me", "payload": '/select_suggest_me'}
 ]
 
@@ -237,13 +237,43 @@ class ActionShowFavFoodOption(Action):
         dispatcher.utter_message(text=message, buttons=fav_item_buttons)        
         return [FollowupAction("action_listen")]
 
+critically_acclaimed_item_buttons = [
+    {"title": "critically_acclaimed - Truffles - All American Chicken Burger",  "payload": '/select_time'},
+    {"title": "critically_acclaimed - Meghana Biryani - Hyderabadi Biryani",  "payload": '/select_time'},
+    {"title": "critically_acclaimed - Punjabi Rasoi - Paneer Butter Masala",  "payload": '/select_time'},
+    {"title": "critically_acclaimed - Magnolia Bakery - Tres Leeches",  "payload": '/select_time'},
+]
+
+class ActionShowCriticallyAcclaimedFoodOption(Action):
+
+    def name(self):
+        return "action_show_critically_acclaimed_food_option"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        message = formulate_message("Here are your fav items:")
+        dispatcher.utter_message(text=message, buttons=critically_acclaimed_item_buttons)        
+        return [FollowupAction("action_listen")]
+
 
 suggest_mood_buttons = [
-    {"title": "Happy", "payload": '/select_mood_category{"mood_category": "happy"}'},
-    {"title": "Sad", "payload": '/select_mood_category{"mood_category": "sad"}'},
-    {"title": "Sick", "payload": '/select_mood_category{"mood_category": "sick"}'},
-    {"title": "Party", "payload": '/select_mood_category{"mood_category": "party"}'}  
+    {"title": "Actually pretty good 😊", "payload": '/select_mood_category{"mood_category": "happy"}'},
+    {"title": "Having a stressful day 😟", "payload": '/select_mood_category{"mood_category": "sad"}'},
+    {"title": "Feeling chilly 🤒", "payload": '/select_mood_category{"mood_category": "sick"}'},
+    {"title": "Let the Party begin 🎉", "payload": '/select_mood_category{"mood_category": "party"}'}  
 ]
+
+suggest_crave_buttons = [
+    {"title": "Something savory 😊", "payload": '/select_crave_category{"crave_category": "savory"}'},
+    {"title": "Something sweet 😟", "payload": '/select_crave_category{"crave_category": "sweet"}'},
+    {"title": "Something refreshing 🤒", "payload": '/select_crave_category{"crave_category": "refresh"}'},
+    {"title": "I don't care but I'm hungry AF 🎉", "payload": '/select_crave_category{"crave_category": "hungry"}'}  
+]
+
+suggest_budget_buttons = [
+    {"title": "I'm broke 😊", "payload": '/select_budget{"budget_category": "less"}'},
+    {"title": "Hunger has no price tag 😟", "payload": '/select_budget{"budget_category": "high"}'}
+]
+
 class ActionShowFoodSuggestMeL1(Action): #L1 5 moods
 
     def name(self):
@@ -253,22 +283,116 @@ class ActionShowFoodSuggestMeL1(Action): #L1 5 moods
         message = formulate_message("How are you feeling today?")
         dispatcher.utter_message(text=message, buttons=suggest_mood_buttons)        
         # return [FollowupAction("action_listen")]
-        return [FollowupAction("action_show_food_suggest_meL2")] #for testing
+        return [FollowupAction("action_listen")] #for testing
 
-suggest_time_buttons = [
-    {"title": "within 30 minutes", "payload": '/select_time'},
-    {"title": "30-45 mins", "payload": '/select_time'},
-    {"title": "within an hour", "payload": '/select_time'}
-   ]
+
 class ActionShowFoodSuggestMeL2(Action): #L2 under 30, under 1hr
 
     def name(self):
         return "action_show_food_suggest_meL2"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        message = formulate_message("Worried about delivery time?")
+        value = next(tracker.get_latest_entity_values("mood_category", None))
+        if value == 'happy':
+            message = formulate_message("HAPPY")
+            dispatcher.utter_message(text=message)
+        elif value == 'sad':
+            message = formulate_message("SAD")
+            dispatcher.utter_message(text=message)
+        elif value == 'sick':
+            message = formulate_message("SICK")
+            dispatcher.utter_message(text=message)
+        elif value == 'party':
+            message = formulate_message("PARTY")
+            dispatcher.utter_message(text=message)
+        message = formulate_message(f"What do you crave?")
+        dispatcher.utter_message(text=message, buttons=suggest_crave_buttons)        
+        return [FollowupAction("action_listen")]
+
+
+class ActionShowFoodSuggestMeL3(Action): #L3 
+
+    def name(self):
+        return "action_show_food_suggest_meL3"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        value = next(tracker.get_latest_entity_values("crave_category", None))
+        if value == 'savory':
+            message = formulate_message(f"{value}")
+            dispatcher.utter_message(text=message)
+        elif value == 'sweet':
+            message = formulate_message(f"{value}")
+            dispatcher.utter_message(text=message)
+        elif value == 'refresh':
+            message = formulate_message(f"{value}")
+            dispatcher.utter_message(text=message)
+        elif value == 'hungry':
+            message = formulate_message(f"{value}")
+            dispatcher.utter_message(text=message)
+        message = formulate_message(f"What's your budget?")
+        dispatcher.utter_message(text=message, buttons=suggest_budget_buttons)        
+        return [FollowupAction("action_listen")]
+
+suggest_time_buttons = [
+    {"title": "Fast & Furious", "payload": '/select_time{"time_category": "fnf"}'},
+    {"title": "Nowhere to go", "payload": '/select_time{"time_category": "n2g"}'}
+]
+
+class ActionShowFoodSuggestMeL4(Action): #L4
+
+    def name(self):
+        return "action_show_food_suggest_meL4"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        value = next(tracker.get_latest_entity_values("budget_category", None))
+        
+        if value == 'less':
+            message = formulate_message(f" {value2} always good to save!")
+            dispatcher.utter_message(text=message)
+        elif value == 'high':
+            message = formulate_message(f" {value2} less splash some cash")
+            dispatcher.utter_message(text=message)
+        message = formulate_message(f"How should we deliver?")
         dispatcher.utter_message(text=message, buttons=suggest_time_buttons)        
         return [FollowupAction("action_listen")]
+
+dish_recco_dict = {
+               "happy_savory_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "happy_hungry_less_fnf": ["2Special Thali - 250", "Chicken Biryani - 350"], 
+               "happy_sweet_less_fnf": ["3Special Thali - 250", "Chicken Biryani - 350"]
+            #    "happy_hungry_less_fnf": {"recco": {1:"Special Thali - 250",2:"Chicken Biryani - 350"}},
+            #    "happy_hungry_less_fnf": {"recco": {1:"Special Thali - 250",2:"Chicken Biryani - 350"}},
+            #    "happy_hungry_less_fnf": {"recco": {1:"Special Thali - 250",2:"Chicken Biryani - 350"}},
+            #    "happy_hungry_less_fnf": {"recco": {1:"Special Thali - 250",2:"Chicken Biryani - 350"}},
+            #    "happy_hungry_less_fnf": {"recco": {1:"Special Thali - 250",2:"Chicken Biryani - 350"}},
+            #    "happy_hungry_less_fnf": {"recco": {1:"Special Thali - 250",2:"Chicken Biryani - 350"}}
+               }
+
+class ActionShowFoodSuggestMeL5(Action): #L5
+
+    def name(self):
+        return "action_show_food_suggest_meL5"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        value = next(tracker.get_latest_entity_values("time_category", None))
+        if value == 'fnf':
+            message = formulate_message("Calling vin diesel to deliver your order")
+            dispatcher.utter_message(text=message)
+        elif value == 'n2g':
+            message = formulate_message("Okay we will get there soon!")
+            dispatcher.utter_message(text=message)
+
+        mood = next(tracker.get_latest_entity_values("mood_category", None))
+        crave = next(tracker.get_latest_entity_values("crave_category", None))
+        budget = next(tracker.get_latest_entity_values("budget_category", None))
+        time = next(tracker.get_latest_entity_values("budget_category", None))
+
+        key = mood + '_' + crave + '_' + budget + '_' + time
+
+        dish = dish_recco_dict.get(key)
+        message = formulate_message(f"Ordering {dish} for you!")
+        dispatcher.utter_message(text=message)
+        return [FollowupAction("action_show_cart")]
 
 class ActionShowCart(Action):
     def name(self):
@@ -278,3 +402,7 @@ class ActionShowCart(Action):
         message = formulate_message("Your cart is ready!")
         dispatcher.utter_message(text=message)        
         return [FollowupAction("action_listen")]
+
+suggest_dish_dict = {
+    'happy_savory_less_fnf': []
+}

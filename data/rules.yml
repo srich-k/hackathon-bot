@@ -42,6 +42,11 @@ rules:
   - intent: select_fav_food
   - action: action_show_fav_food_option
 
+- rule: Fetch critically acclaimed food
+  steps:
+  - intent: select_critically_acclaimed
+  - action: action_show_critically_acclaimed_food_option
+
 # - rule: Fetch food category suggest me
 #   steps:
 #   - intent: select_fav_food
@@ -50,11 +55,24 @@ rules:
 - rule: Fetch food category suggest me
   steps:
   - intent: select_time
-  - action: action_show_cart
+  - action: action_show_food_suggest_meL5
 
 - rule: Fetch food category suggest me
   steps:
   - intent: select_suggest_me
   - action: action_show_food_suggest_meL1
+
+- rule: Fetch food category
+  steps:
+  - intent: select_mood_category
+  - action: action_show_food_suggest_meL2
   
-  
+- rule: Fetch crave category
+  steps:
+  - intent: select_crave_category
+  - action: action_show_food_suggest_meL3 
+
+- rule: Fetch time
+  steps:
+  - intent: select_budget
+  - action: action_show_food_suggest_meL4
