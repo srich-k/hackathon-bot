@@ -1,4 +1,4 @@
-version: "3.1"
+# version: "3.1"
 
 rules:
 - rule: Utterance for the intent greet
@@ -31,3 +31,30 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_submit_user_details
+
+- rule: Fetch food category
+  steps:
+  - intent: swiggy_category_food
+  - action: action_show_food_option
+
+- rule: Fetch Fav food category
+  steps:
+  - intent: select_fav_food
+  - action: action_show_fav_food_option
+
+# - rule: Fetch food category suggest me
+#   steps:
+#   - intent: select_fav_food
+#   - action: action_show_food_suggest_me
+
+- rule: Fetch food category suggest me
+  steps:
+  - intent: select_time
+  - action: action_show_cart
+
+- rule: Fetch food category suggest me
+  steps:
+  - intent: select_suggest_me
+  - action: action_show_food_suggest_meL1
+  
+  

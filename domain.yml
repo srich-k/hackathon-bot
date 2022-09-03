@@ -1,4 +1,4 @@
-version: "3.1"
+# version: "3.1"
 
 intents:
   - greet
@@ -8,6 +8,15 @@ intents:
   - shop_item
   - select_category
   - user_details
+  - select_swiggy_category
+  - select_food_category
+  - swiggy_category_food
+  - swiggy_category_im
+  - select_fav_food
+  - select_explore_cuisine
+  - select_suggest_me
+  - select_time
+  - select_mood_category
 
 responses:
   utter_shop_item:
@@ -24,11 +33,22 @@ actions:
   - action_select_category
   - action_greet_user
   - action_submit_user_details
+  - action_submit_user_address
+  - action_show_swiggy_category
+  - action_show_food_option
+  - action_show_fav_food_option
+  - action_show_food_suggest_meL1
+  - action_show_food_suggest_meL2
+  - action_show_cart
 
 entities:
   - parent_category
   - quantifier
   - mobile_no
+  - swiggy_category
+  - food_category
+  - im_category
+  - mood_category
 
 slots:
   mobile_no:
@@ -56,6 +76,24 @@ slots:
     mappings:
       - type: from_entity
         entity: quantifier
+  swiggy_category:
+    type: categorical
+    values: 
+      - food
+      - im
+    mappings:
+      - type: from_entity
+        entity: swiggy_category
+  mood_category:
+    type: categorical
+    values: 
+      - happy
+      - sad
+      - sick
+      - party
+    mappings:
+      - type: from_entity
+        entity: mood_category
 
 forms:
   user_details_form:

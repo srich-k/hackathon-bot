@@ -22,16 +22,14 @@ parent_category_buttons = [
     {"title": "Snacks", "payload": '/select_category{"parent_category": "snacks"}'},
     {"title": "Beverages", "payload": '/select_category{"parent_category": "beverages"}'},
     {"title": "health_nutrition_supplements_buttons", "payload": '/select_category{"parent_category": "health-nutrition-supplements"}'},
-    {"title": "bakery_egg_dairy_buttons", "payload": '/select_category{"parent_category": "bakery-egg-dairy"}'},
-    # {"title": "packaged_food_buttons", "payload": '/select_category{"parent_category": "packaged-food"}'},
-    # {"title": "Others", "payload": '/select_category{"parent_category": "others"}'}
+    {"title": "bakery_egg_dairy_buttons", "payload": '/select_category{"parent_category": "bakery-egg-dairy"}'}
 ]
 
 f_and_v_buttons = [
     {"title": "🍎 Apple", "payload": '/purchase_item{"item": "apple", "price": 120, "quantifier": "weight"}'},
     {"title": "🍌 Banana", "payload": '/purchase_item{"item": "banana", "price": 60, "quantifier": "weight"}'},
     {"title": "🍅 Tomatoes", "payload": '/purchase_item{"item": "tomato", "price": 75, "quantifier": "weight"}'},
-    {"title": "🧅 Onion", "payload": '/purchase_item{"item": "onion", "price": 30, "quantifier": "weight"}'},
+    {"title": "🧅 Onion", "payload": '/purchase_item{"item": "onion", "price": 30, "quantifier": "weight"}'}
 ]
 
 snack_buttons = [
@@ -45,7 +43,7 @@ beverage_buttons = [
     {"title": "Coca Cola (Bottle)", "payload": '/purchase_item{"item": "cocacola", "price": 40, "quantifier": "number"}'},
     {"title": "Kinley Extra Punch Soda (Bottle)", "payload": '/purchase_item{"item": "kinleySoda","price": 40, "quantifier": "weight"}'},
     {"title": "Sprite", "payload": '/purchase_item{"item": "sprite","price": 40, "quantifier": "weight"}'},
-    {"title": "Coca-Cola Diet Coke (Can)", "payload": '/purchase_item{"item": "cocacoladiet", "price": 50, "quantifier": "weight"}'},
+    {"title": "Coca-Cola Diet Coke (Can)", "payload": '/purchase_item{"item": "cocacoladiet", "price": 50, "quantifier": "weight"}'}
 ]
 
 health_nutrition_supplements_buttons = [
@@ -53,7 +51,7 @@ health_nutrition_supplements_buttons = [
     {"title": "ORSL Plus Orange Drink", "payload": '/purchase_item{"item": "orslorange", "price": 100, "quantifier": "number"}'},
     {"title": "Yakult Light Probiotic Drink", "payload": '/purchase_item{"item": "yakultdrink","price": 100, "quantifier": "weight"}'},
     {"title": "ORSL Apple Drink", "payload": '/purchase_item{"item": "orslapple","price": 100, "quantifier": "weight"}'},
-    {"title": "Vicks Cough Drops Menthol", "payload": '/purchase_item{"item": "vicks", "price": 100, "quantifier": "weight"}'},
+    {"title": "Vicks Cough Drops Menthol", "payload": '/purchase_item{"item": "vicks", "price": 100, "quantifier": "weight"}'}
 ]
 
 bakery_egg_dairy_buttons = [
@@ -61,7 +59,7 @@ bakery_egg_dairy_buttons = [
     {"title": "Britania Brown Bread", "payload": '/purchase_item{"item": "brownbread", "price": 50, "quantifier": "number"}'},
     {"title": "Amul Masti Dahi", "payload": '/purchase_item{"item": "AmulMasti", "price": 50, "quantifier": "weight"}'},
     {"title": "Mother Dairy Toned Milk", "payload": '/purchase_item{"item": "MotherDairy", "price": 50, "quantifier": "weight"}'},
-    {"title": "Eggs (pack of 6)", "payload": '/purchase_item{"item": "egg", "price": 80, "quantifier": "weight"}'},
+    {"title": "Eggs (pack of 6)", "payload": '/purchase_item{"item": "egg", "price": 80, "quantifier": "weight"}'}
 ]
 
 packaged_food_buttons = [
@@ -77,13 +75,30 @@ welcome_buttons = [
     {"title": "Explore our catalog", "payload": '/shop_item'}
 ]
 
-parent_category_buttons = {
+swiggy_category_buttons = [
+    {"title": "Food", "payload": '/swiggy_category_food'},
+    {"title": "Instamart", "payload": '/swiggy_category_im'}
+]
+
+im_buttons = [
+     {"title": "Show my last order", "payload": '/select_im_category{"im_category": "lastorder"}'},
+    {"title": "Explore items", "payload": '/select_im_category{"im_category": "exploreIM"}'}
+]
+
+parent_category_buttons_mapping = {
     "f-and-v": f_and_v_buttons, 
     "snacks": snack_buttons, 
     "beverages": beverage_buttons, 
     "health-nutrition-supplements": health_nutrition_supplements_buttons, 
     "bakery-egg-dairy": bakery_egg_dairy_buttons, 
     "packaged-food": packaged_food_buttons}
+
+fav_item_buttons = [
+    {"title": "Truffles - All American Chicken Burger", "payload": '/purchase_item{"item": "All American Chicken Burger", "price": 210, "quantifier": "weight"}'},
+    {"title": "Meghana Biryani - Hyderabadi Biryani", "payload": '/purchase_item{"item": "Hyderabadi Biryani", "price": 360, "quantifier": "weight"}'},
+    {"title": "Punjabi Rasoi - Paneer Butter Masala", "payload": '/purchase_item{"item": "Paneer Butter Masala", "price": 175, "quantifier": "weight"}'},
+    {"title": "Magnolia Bakery - Tres Leeches", "payload": '/purchase_item{"item": "Tres Leeches", "price": 330, "quantifier": "weight"}'},
+]
 
 def formulate_message(*msg_parts):
     message = ""
@@ -94,7 +109,7 @@ def formulate_message(*msg_parts):
 
 class ActionShowItems(Action):
 
-    def name(self) -> Text:
+    def name(self):
         return "action_show_items"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
@@ -162,6 +177,104 @@ class ActionSubmitUserDetails(Action):
             else:
                 message = formulate_message(f"Wonderful, you are all set to start your order journey, choose from the following")
             dispatcher.utter_message(message)
-            return [FollowupAction("action_show_items")]
-            
 
+        #ask address
+        # message = formulate_message(f"Use your usual address?")
+        # dispatcher.utter_message(message)
+
+            return [FollowupAction("action_submit_user_address")]
+
+class ActionSubmitUserAddress(Action):
+    def name(self):
+        return "action_submit_user_address"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]):
+        mobile_no = tracker.get_slot("mobile_no")
+        if mobile_no is not None:
+            address = static_data.get(mobile_no, {}).get("address")
+            if address:
+                message = formulate_message("Should I use your usual address?", f"{address.get(1)}")
+            else:
+                message = formulate_message("Provide your address:")
+            # TODO get y/n or address from user
+            dispatcher.utter_message(message)
+            return [FollowupAction("action_show_swiggy_category")]
+
+class ActionShowSwiggyCategory(Action):
+    # TODO remove if not needed
+    def name(self) -> Text:
+        return "action_show_swiggy_category"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        swiggy_category = tracker.get_slot("swiggy_category")
+        if swiggy_category is None:
+            dispatcher.utter_message(text="Could you please choose from the following?", buttons=swiggy_category_buttons)
+            return [FollowupAction("action_listen")]
+
+food_buttons = [
+     {"title": "Show my favorites", "payload": '/select_fav_food'},
+    {"title": "Explore Cuisines", "payload": '/select_explore_cuisine'},
+    {"title": "Suggest me", "payload": '/select_suggest_me'}
+]
+
+class ActionShowFoodOption(Action):
+
+    def name(self):
+        return "action_show_food_option"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        message = formulate_message("In Food We have the following available")
+        dispatcher.utter_message(text=message, buttons=food_buttons)        
+        return [FollowupAction("action_listen")]
+
+class ActionShowFavFoodOption(Action):
+
+    def name(self):
+        return "action_show_fav_food_option"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        message = formulate_message("Here are your fav items:")
+        dispatcher.utter_message(text=message, buttons=fav_item_buttons)        
+        return [FollowupAction("action_listen")]
+
+
+suggest_mood_buttons = [
+    {"title": "Happy", "payload": '/select_mood_category{"mood_category": "happy"}'},
+    {"title": "Sad", "payload": '/select_mood_category{"mood_category": "sad"}'},
+    {"title": "Sick", "payload": '/select_mood_category{"mood_category": "sick"}'},
+    {"title": "Party", "payload": '/select_mood_category{"mood_category": "party"}'}  
+]
+class ActionShowFoodSuggestMeL1(Action): #L1 5 moods
+
+    def name(self):
+        return "action_show_food_suggest_meL1"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        message = formulate_message("How are you feeling today?")
+        dispatcher.utter_message(text=message, buttons=suggest_mood_buttons)        
+        # return [FollowupAction("action_listen")]
+        return [FollowupAction("action_show_food_suggest_meL2")] #for testing
+
+suggest_time_buttons = [
+    {"title": "within 30 minutes", "payload": '/select_time'},
+    {"title": "30-45 mins", "payload": '/select_time'},
+    {"title": "within an hour", "payload": '/select_time'}
+   ]
+class ActionShowFoodSuggestMeL2(Action): #L2 under 30, under 1hr
+
+    def name(self):
+        return "action_show_food_suggest_meL2"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        message = formulate_message("Worried about delivery time?")
+        dispatcher.utter_message(text=message, buttons=suggest_time_buttons)        
+        return [FollowupAction("action_listen")]
+
+class ActionShowCart(Action):
+    def name(self):
+        return "action_show_cart"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        message = formulate_message("Your cart is ready!")
+        dispatcher.utter_message(text=message)        
+        return [FollowupAction("action_listen")]
