@@ -52,6 +52,11 @@ rules:
 #   - intent: select_fav_food
 #   - action: action_show_food_suggest_me
 
+- rule: Show food category to user
+  steps:
+  - intent: show_food_category
+  - action: action_show_swiggy_category
+
 - rule: Fetch food category suggest me
   steps:
   - intent: select_suggest_me

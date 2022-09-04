@@ -2,7 +2,6 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.events import FollowupAction, AllSlotsReset, SlotSet
-from rasa.core.actions.forms import FormAction
 from rasa_sdk.executor import CollectingDispatcher
 
 static_data = {
@@ -30,6 +29,11 @@ f_and_v_buttons = [
     {"title": "🍌 Banana", "payload": '/purchase_item{"item": "banana", "price": 60, "quantifier": "weight"}'},
     {"title": "🍅 Tomatoes", "payload": '/purchase_item{"item": "tomato", "price": 75, "quantifier": "weight"}'},
     {"title": "🧅 Onion", "payload": '/purchase_item{"item": "onion", "price": 30, "quantifier": "weight"}'}
+]
+
+decision_buttons = [
+    {"title": "Yes", "payload": "/show_food_category"},
+    {"title": "No", "payload": "/random"}
 ]
 
 snack_buttons = [
@@ -99,6 +103,88 @@ fav_item_buttons = [
     {"title": "Punjabi Rasoi - Paneer Butter Masala", "payload": '/purchase_item{"item": "Paneer Butter Masala", "price": 175, "quantifier": "weight"}'},
     {"title": "Magnolia Bakery - Tres Leeches", "payload": '/purchase_item{"item": "Tres Leeches", "price": 330, "quantifier": "weight"}'},
 ]
+
+dish_recco_dict = {
+               "happy_savory_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "happy_savory_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"], 
+               "happy_savory_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "happy_savory_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+
+               "happy_sweet_high_n2g": ["Butterscotch ice-cream tub - 260", "Tiramisu - 200"],
+               "happy_sweet_high_fnf": ["Butterscotch ice-cream tub - 260", "Tiramisu - 200"],
+               "happy_sweet_less_fnf": ["Chocolate Single Scoop - 89", "Nutella Waffle - 180"],
+               "happy_sweet_less_n2g": ["Chocolate Single Scoop - 89", "Nutella Waffle - 180"],
+
+               "happy_refresh_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "happy_refresh_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "happy_refresh_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "happy_refresh_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+
+               "happy_hungry_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "happy_hungry_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "happy_hungry_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "happy_hungry_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+
+               "sad_savory_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sad_savory_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"], 
+               "sad_savory_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sad_savory_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               
+               "sad_sweet_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sad_sweet_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sad_sweet_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sad_sweet_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+
+               "sad_refresh_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sad_refresh_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sad_refresh_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sad_refresh_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+
+               "sad_hungry_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sad_hungry_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sad_hungry_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sad_hungry_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+
+			   "sick_savory_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sick_savory_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"], 
+               "sick_savory_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sick_savory_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               
+               "sick_sweet_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sick_sweet_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sick_sweet_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sick_sweet_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+
+               "sick_refresh_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sick_refresh_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sick_refresh_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sick_refresh_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+
+               "sick_hungry_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sick_hungry_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sick_hungry_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sick_hungry_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+
+			   "party_savory_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "party_savory_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"], 
+               "party_savory_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "party_savory_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               
+               "party_sweet_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "party_sweet_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "party_sweet_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "party_sweet_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+
+               "party_refresh_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "prty_refresh_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "party_refresh_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "party_refresh_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+
+               "party_hungry_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "party_hungry_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "party_hungry_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "party_hungry_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"]               
+               }
 
 def formulate_message(*msg_parts):
     message = ""
@@ -197,8 +283,8 @@ class ActionSubmitUserAddress(Action):
             else:
                 message = formulate_message("Provide your address:")
             # TODO get y/n or address from user
-            dispatcher.utter_message(message)
-            return [FollowupAction("action_show_swiggy_category")]
+            dispatcher.utter_message(message, buttons=decision_buttons)
+            return [FollowupAction("action_listen")]
 
 class ActionShowSwiggyCategory(Action):
     # TODO remove if not needed
@@ -356,18 +442,6 @@ class ActionShowFoodSuggestMeL4(Action): #L4
         dispatcher.utter_message(text=message, buttons=suggest_time_buttons)        
         return [FollowupAction("action_listen"), SlotSet("budget_category", value)]
 
-dish_recco_dict = {
-               "happy_savory_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "happy_hungry_less_fnf": ["2Special Thali - 250", "Chicken Biryani - 350"], 
-               "happy_sweet_less_fnf": ["3Special Thali - 250", "Chicken Biryani - 350"]
-            #    "happy_hungry_less_fnf": {"recco": {1:"Special Thali - 250",2:"Chicken Biryani - 350"}},
-            #    "happy_hungry_less_fnf": {"recco": {1:"Special Thali - 250",2:"Chicken Biryani - 350"}},
-            #    "happy_hungry_less_fnf": {"recco": {1:"Special Thali - 250",2:"Chicken Biryani - 350"}},
-            #    "happy_hungry_less_fnf": {"recco": {1:"Special Thali - 250",2:"Chicken Biryani - 350"}},
-            #    "happy_hungry_less_fnf": {"recco": {1:"Special Thali - 250",2:"Chicken Biryani - 350"}},
-            #    "happy_hungry_less_fnf": {"recco": {1:"Special Thali - 250",2:"Chicken Biryani - 350"}}
-               }
-
 class ActionShowFoodSuggestMeL5(Action): #L5
 
     def name(self):
@@ -387,11 +461,12 @@ class ActionShowFoodSuggestMeL5(Action): #L5
         budget = tracker.get_slot("budget_category")
         time = value
 
-        key = mood + '_' + crave + '_' + budget + '_' + time
+        print(f"Current values of the slots are:\nMood - {mood}, Crave: {crave}, Budget: {budget}, Time: {time}")
 
-        dish = dish_recco_dict.get(key)
-        message = formulate_message(f"Ordering {dish} for you!")
-        dispatcher.utter_message(text=message)
+        key = mood + '_' + crave + '_' + budget + '_' + time
+        
+        dish, image_url = dish_recco_dict.get(key)
+        dispatcher.utter_message(text=f"Ordering {dish} for you!", image=image_url)
         return [FollowupAction("action_show_cart"), SlotSet("time_category")]
 
 class ActionShowCart(Action):

@@ -19,6 +19,7 @@ intents:
   - select_mood_category
   - select_crave_category
   - select_budget
+  - show_food_category
 
 responses:
   utter_shop_item:
@@ -109,16 +110,6 @@ slots:
     mappings:
       - type: from_entity
         entity: swiggy_category
-  mood_category:
-    type: categorical
-    values: 
-      - happy
-      - sad
-      - sick
-      - party
-    mappings:
-      - type: from_entity
-        entity: mood_category
 
 forms:
   user_details_form:
