@@ -65,6 +65,22 @@ slots:
     mappings:
       - type: from_entity
         entity: mobile_no
+  mood_category:
+    type: text
+    mappings:
+      - type: custom
+  crave_category:
+    type: text
+    mappings:
+      - type: custom
+  budget_category:
+    type: text
+    mappings:
+      - type: custom
+  time_category:
+    type: text
+    mappings:
+      - type: custom
   parent_category:
     type: categorical
     values: 

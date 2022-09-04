@@ -54,11 +54,6 @@ rules:
 
 - rule: Fetch food category suggest me
   steps:
-  - intent: select_time
-  - action: action_show_food_suggest_meL5
-
-- rule: Fetch food category suggest me
-  steps:
   - intent: select_suggest_me
   - action: action_show_food_suggest_meL1
 
@@ -76,3 +71,8 @@ rules:
   steps:
   - intent: select_budget
   - action: action_show_food_suggest_meL4
+
+- rule: Fetch food category suggest me
+  steps:
+  - intent: select_time
+  - action: action_show_food_suggest_meL5

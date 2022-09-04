@@ -1,7 +1,7 @@
 from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
-from rasa_sdk.events import FollowupAction, AllSlotsReset
+from rasa_sdk.events import FollowupAction, AllSlotsReset, SlotSet
 from rasa.core.actions.forms import FormAction
 from rasa_sdk.executor import CollectingDispatcher
 
@@ -307,7 +307,7 @@ class ActionShowFoodSuggestMeL2(Action): #L2 under 30, under 1hr
             dispatcher.utter_message(text=message)
         message = formulate_message(f"What do you crave?")
         dispatcher.utter_message(text=message, buttons=suggest_crave_buttons)        
-        return [FollowupAction("action_listen")]
+        return [FollowupAction("action_listen"), SlotSet("mood_category", value)]
 
 
 class ActionShowFoodSuggestMeL3(Action): #L3 
@@ -331,7 +331,7 @@ class ActionShowFoodSuggestMeL3(Action): #L3
             dispatcher.utter_message(text=message)
         message = formulate_message(f"What's your budget?")
         dispatcher.utter_message(text=message, buttons=suggest_budget_buttons)        
-        return [FollowupAction("action_listen")]
+        return [FollowupAction("action_listen"), SlotSet("crave_category", value)]
 
 suggest_time_buttons = [
     {"title": "Fast & Furious", "payload": '/select_time{"time_category": "fnf"}'},
@@ -347,14 +347,14 @@ class ActionShowFoodSuggestMeL4(Action): #L4
         value = next(tracker.get_latest_entity_values("budget_category", None))
         
         if value == 'less':
-            message = formulate_message(f"{value2} always good to save!")
+            message = formulate_message(f"Agree! always good to save!")
             dispatcher.utter_message(text=message)
         elif value == 'high':
-            message = formulate_message(f"{value2} less splash some cash")
+            message = formulate_message(f"Chalo! lets splash some cash")
             dispatcher.utter_message(text=message)
         message = formulate_message(f"How should we deliver?")
         dispatcher.utter_message(text=message, buttons=suggest_time_buttons)        
-        return [FollowupAction("action_listen")]
+        return [FollowupAction("action_listen"), SlotSet("budget_category", value)]
 
 dish_recco_dict = {
                "happy_savory_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
@@ -382,17 +382,17 @@ class ActionShowFoodSuggestMeL5(Action): #L5
             message = formulate_message("Okay we will get there soon!")
             dispatcher.utter_message(text=message)
 
-        mood = next(tracker.get_latest_entity_values("mood_category", None))
-        crave = next(tracker.get_latest_entity_values("crave_category", None))
-        budget = next(tracker.get_latest_entity_values("budget_category", None))
-        time = next(tracker.get_latest_entity_values("budget_category", None))
+        mood = tracker.get_slot("mood_category")
+        crave = tracker.get_slot("crave_category")
+        budget = tracker.get_slot("budget_category")
+        time = value
 
         key = mood + '_' + crave + '_' + budget + '_' + time
 
         dish = dish_recco_dict.get(key)
         message = formulate_message(f"Ordering {dish} for you!")
         dispatcher.utter_message(text=message)
-        return [FollowupAction("action_show_cart")]
+        return [FollowupAction("action_show_cart"), SlotSet("time_category")]
 
 class ActionShowCart(Action):
     def name(self):
