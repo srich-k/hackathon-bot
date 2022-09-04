@@ -132,7 +132,7 @@ class ActionSelectCategory(Action):
             return [FollowupAction("action_listen")]
         parent_categ_str = "Fruits and Vegetables" if parent_category == "f-and-v" else parent_category.capitalize()
         message = formulate_message(f"In {parent_categ_str}", "We have the following available")
-        display_buttons = parent_category_buttons.get(parent_category)
+        display_buttons = parent_category_buttons_mapping.get(parent_category)
         dispatcher.utter_message(text=message, buttons=display_buttons)
         return [FollowupAction("action_listen")]
 
@@ -347,10 +347,10 @@ class ActionShowFoodSuggestMeL4(Action): #L4
         value = next(tracker.get_latest_entity_values("budget_category", None))
         
         if value == 'less':
-            message = formulate_message(f" {value2} always good to save!")
+            message = formulate_message(f"{value2} always good to save!")
             dispatcher.utter_message(text=message)
         elif value == 'high':
-            message = formulate_message(f" {value2} less splash some cash")
+            message = formulate_message(f"{value2} less splash some cash")
             dispatcher.utter_message(text=message)
         message = formulate_message(f"How should we deliver?")
         dispatcher.utter_message(text=message, buttons=suggest_time_buttons)        
