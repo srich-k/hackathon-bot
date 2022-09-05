@@ -75,8 +75,8 @@ packaged_food_buttons = [
 ]
 
 welcome_buttons = [
-    {"title": "Enter details", "payload": '/user_details'},
-    {"title": "Explore our catalog", "payload": '/shop_item'}
+    {"title": "Enter details", "payload": '/user_details'}
+    # {"title": "Explore our catalog", "payload": '/shop_item'}
 ]
 
 swiggy_category_buttons = [
@@ -105,86 +105,55 @@ fav_item_buttons = [
 ]
 
 dish_recco_dict = {
-               "happy_savory_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "happy_savory_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"], 
-               "happy_savory_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "happy_savory_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "happy_savory_less_fnf": {"recco": "Papdi Chat - 150", "image" : "https://images.app.goo.gl/YokUy6YQDuEGtgcW6"},
+               "happy_savory_less_n2g": {"recco": "Grilled Sandwich - 120", "image" : "https://images.app.goo.gl/2cqohq5v37R1qXyC6"},
+               "happy_savory_high_n2g": {"recco": "Chicken Burger - 350", "image" : "https://images.app.goo.gl/5YTH68T8oy9aTFU49"},
+               "happy_savory_high_fnf": {"recco": "Veg Pizza - 250", "image" : "https://images.app.goo.gl/TGPJdHVgExEDcV6RA"},
 
-               "happy_sweet_high_n2g": ["Butterscotch ice-cream tub - 260", "Tiramisu - 200"],
-               "happy_sweet_high_fnf": ["Butterscotch ice-cream tub - 260", "Tiramisu - 200"],
-               "happy_sweet_less_fnf": ["Chocolate Single Scoop - 89", "Nutella Waffle - 180"],
-               "happy_sweet_less_n2g": ["Chocolate Single Scoop - 89", "Nutella Waffle - 180"],
+               "happy_sweet_high_n2g": {"recco": "Nutella Waffle - 210", "image" : "https://images.app.goo.gl/Fv35J6X5q2HWwdDV8"},
+               "happy_sweet_high_fnf": {"recco": "Nutella Waffle - 350", "image" : "https://kirbiecravings.com/wp-content/uploads/2014/06/stuffed-nutella-waffles-31.jpg"},
+               "happy_sweet_less_fnf": {"recco": "Choco Lava Cake - 89", "image" : "https://images.app.goo.gl/zeooenVxLq7vLtKe9"},
+               "happy_sweet_less_n2g": {"recco": "Tiramisu - 250", "image" : "https://images.app.goo.gl/SPiLA7EwnUTWYjr58"},
 
-               "happy_refresh_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "happy_refresh_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "happy_refresh_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "happy_refresh_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "happy_refresh_less_fnf": {"recco": "Papdi Chat - 150", "image" : "https://images.app.goo.gl/YokUy6YQDuEGtgcW6"},
+               "happy_refresh_less_n2g": {"recco": "Nutella Waffle - 210", "image" : "https://images.app.goo.gl/Fv35J6X5q2HWwdDV8"},
+               "happy_refresh_high_fnf": {"recco": "Nutella Waffle - 210", "image" : "https://images.app.goo.gl/Fv35J6X5q2HWwdDV8"},
+               "happy_refresh_high_n2g": {"recco": "Nutella Waffle - 210", "image" : "https://images.app.goo.gl/Fv35J6X5q2HWwdDV8"},
 
-               "happy_hungry_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "happy_hungry_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "happy_hungry_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "happy_hungry_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               # "happy_hungry_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               # "happy_hungry_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               # "happy_hungry_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               # "happy_hungry_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
 
-               "sad_savory_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sad_savory_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"], 
-               "sad_savory_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sad_savory_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sad_savory_less_fnf": {"recco": "Papdi Chat - 150", "image" : "https://images.app.goo.gl/YokUy6YQDuEGtgcW6"},
+               "sad_savory_less_n2g": {"recco": "Grilled Sandwich - 120", "image" : "https://images.app.goo.gl/2cqohq5v37R1qXyC6"},
+               "sad_savory_high_n2g": {"recco": "Chicken Burger - 350", "image" : "https://images.app.goo.gl/5YTH68T8oy9aTFU49"},
+               "sad_savory_high_fnf": {"recco": "Veg Pizza - 250", "image" : "https://images.app.goo.gl/TGPJdHVgExEDcV6RA"},
                
-               "sad_sweet_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sad_sweet_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sad_sweet_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sad_sweet_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               "sad_sweet_high_n2g": {"recco": "Nutella Waffle - 210", "image" : "https://images.app.goo.gl/Fv35J6X5q2HWwdDV8"},
+               "sad_sweet_high_fnf": {"recco": "Chocolate ice-cream Tub - 350", "image" : "https://images.app.goo.gl/mhBqcyMJtMMSm8Hz9"},
+               "sad_sweet_less_fnf": {"recco": "Choco Lava Cake - 89", "image" : "https://images.app.goo.gl/zeooenVxLq7vLtKe9"},
+               "sad_sweet_less_n2g": {"recco": "Tiramisu - 250", "image" : "https://images.app.goo.gl/SPiLA7EwnUTWYjr58"},
 
-               "sad_refresh_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sad_refresh_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sad_refresh_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sad_refresh_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               # "sad_refresh_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               # "sad_refresh_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               # "sad_refresh_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               # "sad_refresh_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
 
-               "sad_hungry_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sad_hungry_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sad_hungry_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sad_hungry_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               # "sad_hungry_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               # "sad_hungry_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               # "sad_hungry_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+               # "sad_hungry_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
 
-			   "sick_savory_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sick_savory_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"], 
-               "sick_savory_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sick_savory_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
+			   "sick_savory_less_fnf": {"recco": "Papdi Chat - 150", "image" : "https://images.app.goo.gl/YokUy6YQDuEGtgcW6"},
+               "sick_savory_less_n2g": {"recco": "Grilled Sandwich - 120", "image" : "https://images.app.goo.gl/2cqohq5v37R1qXyC6"},
+               "sick_savory_high_n2g": {"recco": "Chicken Burger - 350", "image" : "https://images.app.goo.gl/5YTH68T8oy9aTFU49"},
+               "sick_savory_high_fnf": {"recco": "Veg Pizza - 250", "image" : "https://images.app.goo.gl/TGPJdHVgExEDcV6RA"},
                
-               "sick_sweet_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sick_sweet_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sick_sweet_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sick_sweet_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-
-               "sick_refresh_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sick_refresh_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sick_refresh_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sick_refresh_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-
-               "sick_hungry_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sick_hungry_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sick_hungry_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "sick_hungry_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-
-			   "party_savory_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "party_savory_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"], 
-               "party_savory_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "party_savory_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               
-               "party_sweet_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "party_sweet_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "party_sweet_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "party_sweet_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-
-               "party_refresh_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "prty_refresh_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "party_refresh_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "party_refresh_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-
-               "party_hungry_less_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "party_hungry_less_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "party_hungry_high_fnf": ["1Special Thali - 250", "Chicken Biryani - 350"],
-               "party_hungry_high_n2g": ["1Special Thali - 250", "Chicken Biryani - 350"]               
-               }
+               "sick_sweet_high_n2g": {"recco": "Gajar Halwa - 180", "image" : "https://images.app.goo.gl/eMqyZJ2vuxB3VN8S9"},
+               "sick_sweet_high_fnf": {"recco": "Gajar Halwa - 180", "image" : "https://images.app.goo.gl/eMqyZJ2vuxB3VN8S9"},
+               "sick_sweet_less_fnf": {"recco": "Choco Lava Cake - 89", "image" : "https://images.app.goo.gl/zeooenVxLq7vLtKe9"},
+               "sick_sweet_less_n2g": {"recco": "Hot Gulabjamun - 59", "image" : "https://images.app.goo.gl/vPXetDhrbff9EqFD8"}}
 
 def formulate_message(*msg_parts):
     message = ""
@@ -245,7 +214,7 @@ class ActionGreetUser(Action):
         return "action_greet_user"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        message = formulate_message("Hey there 👋, welcome to swiggy", "I am SWIGG-AI your owm personal assistant, I am here to make your ordering journey a breaze. Please choose from the following, you are just a few taps away from having convenience delivered at your doorstep 🚪")
+        message = formulate_message("Hey foodie! 👋, Welcome to Swiggy.", "I am SWIGG-AI your own personal assistant. Here to make your ordering journey a breeze. Please choose from the following, you are just a few taps away from having convenience delivered at your doorstep 🚪")
         dispatcher.utter_message(text=message, buttons=welcome_buttons)
         return [FollowupAction("action_listen"), AllSlotsReset()]
 
@@ -259,9 +228,9 @@ class ActionSubmitUserDetails(Action):
         if mobile_no is not None:
             name = static_data.get(mobile_no, {}).get("name")
             if name:
-                message = formulate_message(f"Hey {name}! Welcome back to Swiggy", "It is wonderful to see you again, choose from the following")
+                message = formulate_message(f"Hey {name}! Welcome back to Swiggy", "It is wonderful to see you again")
             else:
-                message = formulate_message(f"Wonderful, you are all set to start your order journey, choose from the following")
+                message = formulate_message(f"Wonderful, you are all set to start your order journey")
             dispatcher.utter_message(message)
 
         #ask address
@@ -298,8 +267,8 @@ class ActionShowSwiggyCategory(Action):
             return [FollowupAction("action_listen")]
 
 food_buttons = [
-     {"title": "Show my favorites", "payload": '/select_fav_food'},
-    {"title": "Critically Acclaimed Dishes", "payload": '/select_critically_acclaimed'},
+    {"title": "Show my favorites", "payload": '/select_fav_food'},
+    {"title": "Trending Dishes", "payload": '/select_critically_acclaimed'},
     {"title": "Suggest me", "payload": '/select_suggest_me'}
 ]
 
@@ -309,7 +278,7 @@ class ActionShowFoodOption(Action):
         return "action_show_food_option"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        message = formulate_message("In Food We have the following available")
+        message = formulate_message("Where do you wanna go?")
         dispatcher.utter_message(text=message, buttons=food_buttons)        
         return [FollowupAction("action_listen")]
 
@@ -380,7 +349,7 @@ class ActionShowFoodSuggestMeL2(Action): #L2 under 30, under 1hr
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         value = next(tracker.get_latest_entity_values("mood_category", None))
         if value == 'happy':
-            message = formulate_message("HAPPY")
+            message = formulate_message("Glad to hear that")
             dispatcher.utter_message(text=message)
         elif value == 'sad':
             message = formulate_message("SAD")
@@ -391,7 +360,7 @@ class ActionShowFoodSuggestMeL2(Action): #L2 under 30, under 1hr
         elif value == 'party':
             message = formulate_message("PARTY")
             dispatcher.utter_message(text=message)
-        message = formulate_message(f"What do you crave?")
+        message = formulate_message(f"What are you craving?")
         dispatcher.utter_message(text=message, buttons=suggest_crave_buttons)        
         return [FollowupAction("action_listen"), SlotSet("mood_category", value)]
 
@@ -407,7 +376,7 @@ class ActionShowFoodSuggestMeL3(Action): #L3
             message = formulate_message(f"{value}")
             dispatcher.utter_message(text=message)
         elif value == 'sweet':
-            message = formulate_message(f"{value}")
+            message = formulate_message(f"Looks like you are having a sweet tooth!")
             dispatcher.utter_message(text=message)
         elif value == 'refresh':
             message = formulate_message(f"{value}")
@@ -436,7 +405,7 @@ class ActionShowFoodSuggestMeL4(Action): #L4
             message = formulate_message(f"Agree! always good to save!")
             dispatcher.utter_message(text=message)
         elif value == 'high':
-            message = formulate_message(f"Chalo! lets splash some cash")
+            message = formulate_message(f"Chalo! lets splash some cash.")
             dispatcher.utter_message(text=message)
         message = formulate_message(f"How should we deliver?")
         dispatcher.utter_message(text=message, buttons=suggest_time_buttons)        
@@ -450,10 +419,10 @@ class ActionShowFoodSuggestMeL5(Action): #L5
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         value = next(tracker.get_latest_entity_values("time_category", None))
         if value == 'fnf':
-            message = formulate_message("Calling vin diesel to deliver your order")
+            message = formulate_message("Calling Vin Diesel to deliver your order!")
             dispatcher.utter_message(text=message)
         elif value == 'n2g':
-            message = formulate_message("Okay we will get there soon!")
+            message = formulate_message("Okay, we will be there soon!")
             dispatcher.utter_message(text=message)
 
         mood = tracker.get_slot("mood_category")
@@ -465,7 +434,8 @@ class ActionShowFoodSuggestMeL5(Action): #L5
 
         key = mood + '_' + crave + '_' + budget + '_' + time
         
-        dish, image_url = dish_recco_dict.get(key)
+        recco = dish_recco_dict.get(key)
+        dish, image_url = recco["recco"], recco["image"]
         dispatcher.utter_message(text=f"Ordering {dish} for you!", image=image_url)
         return [FollowupAction("action_show_cart"), SlotSet("time_category")]
 
