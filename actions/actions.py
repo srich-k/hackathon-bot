@@ -263,15 +263,15 @@ suggest_mood_buttons = [
 ]
 
 suggest_crave_buttons = [
-    {"title": "Something savory 😊", "payload": '/select_crave_category{"crave_category": "savory"}'},
-    {"title": "Something sweet 😟", "payload": '/select_crave_category{"crave_category": "sweet"}'},
-    {"title": "Something refreshing 🤒", "payload": '/select_crave_category{"crave_category": "refresh"}'},
-    {"title": "I don't care but I'm hungry AF 🎉", "payload": '/select_crave_category{"crave_category": "hungry"}'}  
+    {"title": "Something savory 🍕", "payload": '/select_crave_category{"crave_category": "savory"}'},
+    {"title": "Something sweet 🧇", "payload": '/select_crave_category{"crave_category": "sweet"}'},
+    {"title": "Something refreshing 🧃", "payload": '/select_crave_category{"crave_category": "refresh"}'},
+    {"title": "I don't care but I'm hungry AF 🤤", "payload": '/select_crave_category{"crave_category": "hungry"}'}  
 ]
 
 suggest_budget_buttons = [
-    {"title": "I'm broke 😊", "payload": '/select_budget{"budget_category": "less"}'},
-    {"title": "Hunger has no price tag 😟", "payload": '/select_budget{"budget_category": "high"}'}
+    {"title": "I'm broke 😛", "payload": '/select_budget{"budget_category": "less"}'},
+    {"title": "Hunger has no price tag 🤑", "payload": '/select_budget{"budget_category": "high"}'}
 ]
 
 class ActionShowFoodSuggestMeL1(Action): #L1 5 moods
